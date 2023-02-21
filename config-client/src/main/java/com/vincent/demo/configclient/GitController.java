@@ -1,11 +1,13 @@
 package com.vincent.demo.configclient;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@RefreshScope
 public class GitController {
 
   private final GitConfig gitConfig;
