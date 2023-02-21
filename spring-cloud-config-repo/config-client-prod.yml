@@ -1,2 +1,5 @@
-user.role=User
-user.password=pass
+data:
+  env: localhost-online
+  user:
+    username: vincent-online
+    password: password-online
