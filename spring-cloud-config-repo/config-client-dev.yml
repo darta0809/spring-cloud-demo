@@ -1,0 +1,5 @@
+data:
+  env: localhost-dev-edit
+  user:
+    username: vincent-dev
+    password: password-dev
