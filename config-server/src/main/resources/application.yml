@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+
+spring:
+  application:
+    name: config-single-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/darta0809/spring-cloud-demo.git
+          username: git username
+          password: git password
+          default-label: main
+          search-paths: spring-cloud-config-repo
+          clone-on-start: true
+        bootstrap: true
+      enabled: true
+
+
+#spring.security.user.name=root
+#spring.security.user.password=mimabugbug
+
+#encrypt.keyStore.location=classpath:/config-server.jks
+#encrypt.keyStore.password=my-s70r3-s3cr3t
+#encrypt.keyStore.alias=config-server-key
+#encrypt.keyStore.secret=my-k34-s3cr3t
