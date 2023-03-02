@@ -1,0 +1,11 @@
+# Spring properties
+spring:
+  application:
+    name: eureka-client-service
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/ #Eureka Server
+# HTTP Server
+server:
+  port: 8801
