@@ -1,7 +1,6 @@
 server:
   port: 8888
 
-
 spring:
   application:
     name: config-single-server
@@ -10,19 +9,27 @@ spring:
       server:
         git:
           uri: https://github.com/darta0809/spring-cloud-demo.git
-          username: git username
-          password: git password
+          username:
+          password:
           default-label: main
           search-paths: spring-cloud-config-repo
           clone-on-start: true
         bootstrap: true
       enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123123
 
-
-#spring.security.user.name=root
-#spring.security.user.password=mimabugbug
-
-#encrypt.keyStore.location=classpath:/config-server.jks
-#encrypt.keyStore.password=my-s70r3-s3cr3t
-#encrypt.keyStore.alias=config-server-key
-#encrypt.keyStore.secret=my-k34-s3cr3t
+# Spring cloud bus 發送配置
+management:
+  endpoint:
+    refresh:
+      enabled: true
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"

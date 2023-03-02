@@ -5,17 +5,19 @@ spring:
     config:
       label: main
       profile: dev
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      trace:
+        enabled: true
   config:
     import: optional:configserver:http://localhost:8888
-
-management:
-  endpoint:
-    shutdown:
-      enabled: false
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+  rabbitmq:
+    host: localhost
+    prot: 5672
+    username: root
+    password: 123123
 
 data:
   env: NaN
@@ -23,3 +25,17 @@ data:
     username: NaN
     password: NaN
 
+server:
+  port: 8082
+
+# 單點自動刷新配置
+management:
+  endpoint:
+    refresh:
+      enabled: true
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
