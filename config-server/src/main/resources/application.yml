@@ -14,8 +14,8 @@ spring:
           default-label: main
           search-paths: spring-cloud-config-repo
           clone-on-start: true
+          force-pull: true # 強制 pull，避免本地副本變髒，例如：操作系統進程更改文件夾內容
         bootstrap: true
-      enabled: true
   rabbitmq:
     host: localhost
     port: 5672

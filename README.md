@@ -45,7 +45,11 @@ http://localhost:8888/main/config-client-prod.yml
 
 * 透過 actuator 實現自動刷新配置
 
+專案測試了使用 `@Value` 跟 properties class 方式
+
+無法自動更新  
 http://localhost:8080/show  
+會自動更新  
 http://localhost:8080/autoShow
 
 > 透過觸發更新，可不用重啟服務取得最新資料  
@@ -80,8 +84,9 @@ http://localhost:8080/autoShow
 
 ## Spring cloud bus
 
-使用 RabbitMQ，docker 啟動，在 server 端添加配置  
-透過 server 去觸發 client   
+使用 RabbitMQ，docker-compose 啟動  
+`docker-compose up -d --build`  
+在 server 端添加配置，透過 server 去觸發 client   
 [POST] http://localhost:8888/actuator/busrefresh
 
 ## Spring cloud Netflix Eureka
