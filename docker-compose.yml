@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql:8.0.28
+    container_name: mysql_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=CONFIG_SERVER
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - '3308:3306'
+
+  rabbit1:
+    image: rabbitmq:3.10.6-management
+    hostname: rabbit1
+    container_name: rabbit1
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=123123
+      - RABBITMQ_ERLANG_COOKIE=test
+    volumes:
+      - ./rabbitmq1_data:/var/lib/rabbitmq
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+  rabbit2:
+    image: rabbitmq:3.10.6-management
+    hostname: rabbit2
+    container_name: rabbit2
+    restart: always
+    depends_on:
+      - rabbit1
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=test
+    volumes:
+      - ./rabbitmq2_data:/var/lib/rabbitmq
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+  rabbit3:
+    image: rabbitmq:3.10.6-management
+    hostname: rabbit3
+    container_name: rabbit3
+    restart: always
+    depends_on:
+      - rabbit1
+    ports:
+      - "5674:5672"
+      - "15674:15672"
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=test
+    volumes:
+      - ./rabbitmq3_data:/var/lib/rabbitmq
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+

@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### docker ###
+/rabbitmq1_data/
+/rabbitmq2_data/
+/rabbitmq3_data/
