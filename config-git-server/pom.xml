@@ -11,10 +11,10 @@
   </parent>
 
   <groupId>com.vincent.server</groupId>
-  <artifactId>config-server</artifactId>
+  <artifactId>config-git-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>config-server</name>
-  <description>config-server</description>
+  <name>config-git-server</name>
+  <description>config-git-server</description>
 
   <properties>
     <java.version>17</java.version>
