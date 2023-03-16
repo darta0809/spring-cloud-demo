@@ -91,4 +91,6 @@ http://localhost:8080/autoShow
 
 ## Spring cloud Netflix Eureka
 
-基本配置 Server side、Client side
+基本配置 Server side、Client side  
+GUI  
+http://localhost:8761/  
