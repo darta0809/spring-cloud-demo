@@ -1,10 +1,10 @@
-package com.vincent.demo.configserver;
+package com.vincent.demo.configclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConfigServerApplicationTests {
+class ConfigGitClientApplicationTests {
 
   @Test
   void contextLoads() {
